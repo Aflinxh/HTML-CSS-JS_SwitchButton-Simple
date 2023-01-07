@@ -1,0 +1,55 @@
+/* Variable of Color */
+:root {
+	--backgroundOff-color: #49454f;
+	--borderOff-color: #938f99;
+	--circleOff-color: #938f99;
+	--backgroundOn-color: #d0bcff;
+	--borderOn-color: #d0bcff;
+	--circleOn-color: #381e72;
+}
+
+body {
+	background-color: #eee;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.checkbox {
+	/* Use transform: scale() to resize the switch button */
+	transform: scale(2);
+	width: 52px;
+	height: 32px;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	background-color: var(--backgroundOff-color);
+	border-radius: 24px;
+	border: solid 2px var(--borderOff-color);
+	transition: border-color 200ms, background-color 200ms;
+	cursor: pointer;
+}
+
+.checkbox::before {
+	content: '';
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 12px;
+	background-color: var(--circleOff-color);
+	transition: width 200ms, height 200ms, transform 200ms, background-color 200ms;
+}
+
+.checkbox.on {
+	border-color: var(--borderOn-color);
+	background-color: var(--backgroundOn-color);
+}
+
+.checkbox.on::before {
+	background-color: var(--circleOn-color);
+	width: 24px;
+	height: 24px;
+	transform: translateX(18px);
+}
